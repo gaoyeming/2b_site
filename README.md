@@ -4,7 +4,7 @@
 
 ##### 首先感谢博主 ``ZHENFENG13`` ;本博客是在 [ZHENFENG13/My-Blog](https://github.com/ZHENFENG13/My-Blog) 博客基础上修改的,再熟悉的代码后自己敲了一边，并修复一些bug
 
-##### 其次，如果您觉得不错可以给项目一个star;另外附上本人博客地址:[我爱2B哥の博客](http://blog.yeming.org.cn")
+##### 其次，如果您觉得不错可以给项目一个star;另外附上本人博客地址:[我爱2B哥の博客](http://blog.yeming.org.cn)
 ##### ``本人热烈欢迎跟各路大神友链,也请各路大神有空对博客内容进行纠错知道,非常感谢``
 
 ##### 《Docker + SpringBoot + JPA/H2 + Thymeleaf 搭建美观实用的个人博客》介绍
