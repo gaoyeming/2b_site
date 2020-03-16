@@ -17,7 +17,8 @@
    - 运行镜像:[run.sh](file://initStaticFile/md-images/run.sh)
    - 关闭镜像:[stop.sh](file://initStaticFile/md-images/stop.sh)
    - 相关静态资源可使用Nginx自行映射
-
++ 项目集成了Swagger、WebSocket
+   
 ##### 效果预览
 
 **博客首页**
