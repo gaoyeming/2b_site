@@ -23,9 +23,9 @@ INSERT INTO `backstage_link`(`link_type`, `link_name`, `link_url`, `link_descrip
 VALUES (0, '浪人组博客', 'http://zjay.xn--6qq986b3xl:8888/', '浪人组博客', 2, 0);
 
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('footerAbout','your personal blog. have fun.','底部About');
+values ('footerAbout','2BB personal blog to keep.','底部About');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('footerCopyRight','2019 十三','底部Copy Right');
+values ('footerCopyRight','2020 我爱2B哥','底部Copy Right');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('footerICP','浙ICP备17008806号-3','底部备案号');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
@@ -33,17 +33,17 @@ values ('footerPoweredBy','https://github.com/gaoyeming','底部Powered By');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('footerPoweredByURL','https://github.com/gaoyeming','底部Powered By URL');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('websiteDescription','personal blog是SpringBoot2+Thymeleaf+Mybatis建造的个人博客网站.SpringBoot实战博客源码.个人博客搭建','站点描述');
+values ('websiteDescription','该博客是SpringBoot2+Thymeleaf+Mybatis建造的个人博客网站.SpringBoot实战博客源码.个人博客搭建','站点描述');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('websiteIcon','/admin/dist/img/favicon.png','favicon.ico');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('websiteLogo','/admin/dist/img/logo2.png','站点Logo');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('websiteName','personal blog','站点名称');
+values ('websiteName','我爱2B哥の博客','站点名称');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('yourAvatar','/admin/dist/img/personal.jpg','个人头像');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('yourEmail','1312510670@qq.com','个人邮箱');
+values ('yourEmail','yeming.gao@aliyun.com','个人邮箱');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('yourName','我爱2B哥','个人名称');
 
