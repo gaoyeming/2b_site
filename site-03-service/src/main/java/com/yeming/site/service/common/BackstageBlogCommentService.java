@@ -2,6 +2,7 @@ package com.yeming.site.service.common;
 
 import com.yeming.site.dao.entity.BackstageBlogCommentDO;
 import com.yeming.site.dao.repository.BackstageBlogCommentRepository;
+import com.yeming.site.service.WebSocketService;
 import com.yeming.site.service.dto.CommentsBO;
 import com.yeming.site.util.DateUtils;
 import com.yeming.site.util.constant.AllConstants;
@@ -33,6 +34,9 @@ public class BackstageBlogCommentService {
 
     @Resource
     private BackstageBlogCommentRepository backstageBlogCommentRepository;
+
+    @Resource
+    private WebSocketService webSocketService;
 
 
     public Integer getTotalComments(Integer isDeleted) {
@@ -131,21 +135,24 @@ public class BackstageBlogCommentService {
     }
 
     public void saveComments(CommentsBO commentsBO) {
-        if(commentsBO.getBlogId()<0){
-            LOGGER.error("请求的博客id:{}不正确",commentsBO.getBlogId());
+        if (commentsBO.getBlogId() < 0) {
+            LOGGER.error("请求的博客id:{}不正确", commentsBO.getBlogId());
             throw new SiteException("非法请求");
         }
         BackstageBlogCommentDO commentDO = convert(commentsBO);
         try {
             backstageBlogCommentRepository.save(commentDO);
-        }catch (Exception e){
-            LOGGER.error("插入评论出现异常:",e);
+        } catch (Exception e) {
+            LOGGER.error("插入评论出现异常:", e);
             throw new SiteException("对不起,评论失败");
         }
+        //评论成功查看websocket是否有链接，有的话则实时发送给前端
+        //发送弹幕消息
+        webSocketService.sendInfo("收到" + commentsBO.getCommentator() + "的评论:" + commentsBO.getCommentBody());
 
     }
 
-    private BackstageBlogCommentDO convert(CommentsBO commentsBO){
+    private BackstageBlogCommentDO convert(CommentsBO commentsBO) {
         BackstageBlogCommentDO commentDO = new BackstageBlogCommentDO();
         commentDO.setBlogId(commentsBO.getBlogId().intValue());
         commentDO.setCommentator(commentsBO.getCommentator());

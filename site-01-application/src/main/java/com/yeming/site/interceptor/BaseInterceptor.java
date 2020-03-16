@@ -1,5 +1,6 @@
 package com.yeming.site.interceptor;
 
+import com.yeming.site.config.PropertiesConfig;
 import com.yeming.site.dao.entity.BackstageUserDO;
 import com.yeming.site.service.common.BackstageUserService;
 import com.yeming.site.util.CommonUtils;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URI;
 import java.util.Objects;
 
 /**
@@ -28,6 +30,9 @@ public class BaseInterceptor implements HandlerInterceptor {
 
     @Resource
     private BackstageUserService backstageUserService;
+
+    @Resource
+    private PropertiesConfig propertiesConfig;
 
     /**
      * 在业务处理器处理请求之前被调用。预处理，可以进行编码、安全控制、权限校验等处理；
@@ -60,7 +65,8 @@ public class BaseInterceptor implements HandlerInterceptor {
             response.sendRedirect(request.getContextPath() + "/backstage/login");
             return false;
         }
-
+        String websocketUrl = CommonUtils.getHost(new URI(propertiesConfig.getHttpStaticUrl()))+"/websocket";
+        request.setAttribute("websocketUrl", websocketUrl.replace("http://","ws://"));
         request.getSession().removeAttribute("errorMsg");
         return true;
     }

@@ -112,6 +112,7 @@ public class LoginController {
         request.setAttribute("blogCount", backstageBlogService.getTotalBlogs(DeletedEnum.NO_DELETED.getCode()));
         //友情链接
         request.setAttribute("linkCount", backstageLinkService.getTotalLinks(DeletedEnum.NO_DELETED.getCode()));
+
         return "backstage/index";
     }
 

@@ -1,7 +1,5 @@
 package com.yeming.site.service;
 
-import com.yeming.site.util.enums.RespCodeEnum;
-import com.yeming.site.util.exception.SiteException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * @date 2019/6/3 17:51
  */
 @Service
-@ServerEndpoint("/yeming.gao/websocket")
+@ServerEndpoint("/websocket")
 public class WebSocketService {
     private static Logger LOGGER = LoggerFactory.getLogger(WebSocketService.class);
 
@@ -47,11 +45,11 @@ public class WebSocketService {
         WEB_SOCKET_SET.add(this);
         addOnlineCount(); //在线数加1
         LOGGER.info("当前开启的弹幕个数为：" + getOnlineCount());
-        try {
-            sendMessage("WebSocket连接成功");
-        } catch (IOException e) {
-            LOGGER.error("websocket IO异常：{}", e.getMessage());
-        }
+//        try {
+//            sendMessage("WebSocket连接成功");
+//        } catch (IOException e) {
+//            LOGGER.error("websocket IO异常:", e);
+//        }
     }
 
     /**
@@ -65,6 +63,7 @@ public class WebSocketService {
         subOnlineCount(); //在线数减1
         LOGGER.info("有一连接关闭！当前在线人数为" + getOnlineCount());
     }
+
 
     /**
      * 收到客户端消息后调用的方法
@@ -112,8 +111,7 @@ public class WebSocketService {
                 item.sendMessage(message);
                 LOGGER.info("发送弹幕消息:" + message);
             } catch (IOException e) {
-                LOGGER.error("发送弹幕消息出现异常：{}", e.getMessage());
-                throw new SiteException(RespCodeEnum.BARRAGE_SEND_FAIL);
+                LOGGER.error("发送弹幕消息出现异常:", e);
             }
         });
     }
