@@ -47,7 +47,7 @@ public class BackstageLinkDO extends BaseDO implements Serializable {
     /**
      * 是否删除
      **/
-    @Column(insertable = false,updatable = false)
+    @Column(insertable = false, updatable = false)
     private Integer isDeleted;
 
     @Override
