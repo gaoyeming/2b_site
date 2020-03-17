@@ -2,8 +2,8 @@ package com.yeming.site.service.common;
 
 import com.yeming.site.dao.entity.BackstageBlogCommentDO;
 import com.yeming.site.dao.repository.BackstageBlogCommentRepository;
-import com.yeming.site.service.WebSocketService;
 import com.yeming.site.service.dto.CommentsBO;
+import com.yeming.site.service.executor.WebsocketExecutor;
 import com.yeming.site.util.DateUtils;
 import com.yeming.site.util.constant.AllConstants;
 import com.yeming.site.util.enums.DeletedEnum;
@@ -36,7 +36,7 @@ public class BackstageBlogCommentService {
     private BackstageBlogCommentRepository backstageBlogCommentRepository;
 
     @Resource
-    private WebSocketService webSocketService;
+    private WebsocketExecutor websocketExecutor;
 
 
     public Integer getTotalComments(Integer isDeleted) {
@@ -147,8 +147,7 @@ public class BackstageBlogCommentService {
             throw new SiteException("对不起,评论失败");
         }
         //评论成功查看websocket是否有链接，有的话则实时发送给前端
-        //发送弹幕消息
-        webSocketService.sendInfo("收到" + commentsBO.getCommentator() + "的评论:" + commentsBO.getCommentBody());
+        websocketExecutor.sendInfo("收到" + commentsBO.getCommentator() + "的评论:" + commentsBO.getCommentBody());
 
     }
 
