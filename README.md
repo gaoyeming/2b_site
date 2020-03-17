@@ -7,7 +7,7 @@
 ##### 其次，如果您觉得不错可以给项目一个star;另外附上本人博客地址:[我爱2B哥の博客](http://blog.yeming.org.cn)
 ##### ``本人热烈欢迎跟各路大神友链,也请各路大神有空对博客内容进行纠错指导,非常感谢``
 
-##### 《Docker + SpringBoot + JPA/H2 + Thymeleaf 搭建美观实用的个人博客》介绍
+##### 《Docker + SpringBoot + JPA + Thymeleaf + Mysql/H2 搭建美观实用的个人博客》介绍
 + ![avatar](/initStaticFile/md-images/项目配置文件结构.png)
    - logs为本地运行日志目录，可自行修改
    - static,templates为前端Thymeleaf目录
