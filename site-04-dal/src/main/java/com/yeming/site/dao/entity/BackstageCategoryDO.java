@@ -2,7 +2,10 @@ package com.yeming.site.dao.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,6 +20,8 @@ import java.io.Serializable;
 @Setter
 @Getter
 @Entity
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "entityCache")
 public class BackstageCategoryDO extends BaseDO implements Serializable {
 
     /**

@@ -1,7 +1,7 @@
 var websocket;
 $(function () {
     var target = $("#websocketUrl").val();
-    if(websocket != null){
+    if (websocket != null) {
         console.log("WebSocket inited!");
         return;
     }
@@ -25,7 +25,7 @@ $(function () {
         swal({
             icon: "success",
             text: event.data,
-            buttons:{
+            buttons: {
                 cancel: {	//取消按钮
                     text: "取消",
                     value: null,
@@ -37,10 +37,10 @@ $(function () {
                     visible: true
                 }
             }
-        }).then(function(isOk){		//判断是否点击确认
-            if(!isOk)	//如果点击取消
+        }).then(function (isOk) {		//判断是否点击确认
+            if (!isOk)	//如果点击取消
                 swal.close();
-            else{
+            else {
                 window.location.href = "/backstage/comments/manage";
             }
         });
