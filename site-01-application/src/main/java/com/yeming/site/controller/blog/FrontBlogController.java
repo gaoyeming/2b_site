@@ -228,6 +228,7 @@ public class FrontBlogController {
     public String detail(HttpServletRequest request, @PathVariable("blogId") Long blogId,
                          @RequestParam(value = "commentPage", required = false, defaultValue = "1") Integer commentPage) {
         BlogsBO blogsBO = frontBiz.getBlogDetail(blogId);
+        request.setAttribute("configurations", backsatgeBiz.getAllConfigs());
         if (Objects.nonNull(blogsBO)) {
             request.setAttribute("blogDetailVO", blogsBO);
             //评论分页查询
@@ -239,9 +240,12 @@ public class FrontBlogController {
             BeanUtils.copyProperties(commentsBO, commentsVO);
             commentsVO.setCurrPage(commentPage);
             request.setAttribute("commentPageResult", commentsVO);
+            request.setAttribute("pageName", blogsBO.getBlogSubUrl());
+        } else {
+            request.setAttribute("pageName", "sorry,当前博客不存在");
+            return "error/error_404";
         }
-        request.setAttribute("pageName", blogsBO.getBlogSubUrl());
-        request.setAttribute("configurations", backsatgeBiz.getAllConfigs());
+
         return "blog/" + THEME + "/detail";
     }
 

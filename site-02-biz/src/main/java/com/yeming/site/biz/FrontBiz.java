@@ -91,8 +91,11 @@ public class FrontBiz {
             blogsBO.setBlogCategoryIcon(categoryDO.getCategoryIcon());
             //设置评论数
             blogsBO.setCommentCount(backstageBlogCommentService.getTotalBlogComments(blogsBO.getBlogId(), StatusEnum.ONE.getCode()));
+            return blogsBO;
         }
-        return blogsBO;
+
+        return null;
+
     }
 
 
