@@ -23,17 +23,17 @@ INSERT INTO `backstage_link`(`link_type`, `link_name`, `link_url`, `link_descrip
 VALUES (0, '浪人组博客', 'http://zjay.xn--6qq986b3xl:8888/', '浪人组博客', 2, 0);
 
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('footerAbout','2BB personal blog to keep.','底部About');
+values ('footerAbout','我爱2B哥 の 个人博客.','底部About');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('footerCopyRight','2020 我爱2B哥','底部Copy Right');
+values ('footerCopyRight','2020-2023 我爱2B哥','底部Copy Right');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('footerICP','浙ICP备17008806号-3','底部备案号');
+values ('footerICP','皖ICP备 20002837号','底部备案号');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('footerPoweredBy','https://github.com/gaoyeming','底部Powered By');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('footerPoweredByURL','https://github.com/gaoyeming','底部Powered By URL');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
-values ('websiteDescription','该博客是SpringBoot2+Thymeleaf+Mybatis建造的个人博客网站.SpringBoot实战博客源码.个人博客搭建','站点描述');
+values ('websiteDescription','Docker + SpringBoot + JPA + Thymeleaf + Mysql/H2 搭建美观实用的个人博客.SpringBoot实战博客源码','站点描述');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('websiteIcon','/admin/dist/img/favicon.png','favicon.ico');
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
