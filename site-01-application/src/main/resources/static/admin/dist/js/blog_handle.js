@@ -12,6 +12,7 @@ $(function () {
         syncScrolling: "single",
         path: "/admin/plugins/editormd/lib/",
         toolbarModes: 'simple',
+        emoji: true,
         flowChart: true, // 开启流程图支持，默认关闭
         /**图片上传配置*/
         imageUpload: true,
