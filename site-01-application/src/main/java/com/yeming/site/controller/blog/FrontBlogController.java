@@ -78,7 +78,7 @@ public class FrontBlogController {
     @GetMapping({"/page/{pageNum}"})
     @SysOperationLog("分页查询我的博客")
     public String page(HttpServletRequest request, @PathVariable("pageNum") int pageNum) {
-        LOGGER.info("查询第{}页博客信息");
+        LOGGER.info("查询第{}页博客信息",pageNum);
         BlogsVO blogsVO = new BlogsVO();
         BlogsBO blogsBO = new BlogsBO();
         blogsBO.setPage(pageNum - 1);
