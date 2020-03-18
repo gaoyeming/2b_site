@@ -17,7 +17,7 @@ import java.io.IOException;
  * @date 2019/6/10 18:00
  */
 
-@WebFilter(urlPatterns = "/resume/*", filterName = "accessFilter")
+@WebFilter(urlPatterns = "/other/*", filterName = "accessFilter")
 public class AccessFilter implements Filter {
     private static Logger LOGGER = LoggerFactory.getLogger(AccessFilter.class);
 

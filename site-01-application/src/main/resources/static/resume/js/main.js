@@ -1,7 +1,4 @@
-
-function main() {
-
-(function () {
+$(function () {
    'use strict';
    
    // jQuery to collapse the navbar on scroll
@@ -102,10 +99,38 @@ $(window).scroll(function() {
     ======================================*/
 	$("a[rel^='prettyPhoto']").prettyPhoto({
 		social_tools: false
-	});	
+	});
+});
 
-}());
+$('.btn-default').click(function() {
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+    console.log("name="+name+";email="+email+";message="+message);
+    var params = {"name": name, "email": email, "message": message};
 
+    $.ajax({
+        type: 'POST',
+        url: '/leaveMessage',
+        data: params,
+        success: function (result) {
+            if (result.code=== "000") {
+                swal("感谢您的留言,我会尽快回复", {
+                    icon: "success"
+                });
+                $("#message").val("");
+            }
+            else {
+                swal(result.message, {
+                    icon: "error"
+                });
+            }
+        },
+        error: function () {
+            swal("留言失败", {
+                icon: "error"
+            });
+        }
+    });
 
-}
-main();
+});

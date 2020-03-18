@@ -161,3 +161,14 @@ CREATE TABLE `backstage_link` (
   PRIMARY KEY (id),
   UNIQUE KEY `uq_link_url` (`link_url`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='友链表';
+
+-- 留言信息表
+CREATE TABLE `leave_message` (
+  id int(11) NOT NULL AUTO_INCREMENT COMMENT '自增物理主键',
+  create_time datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间，应用不用维护',
+  update_time datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '更新时间，应用不用维护',
+  name varchar(50) NOT NULL DEFAULT '' COMMENT '姓名',
+  email varchar(100) NOT NULL DEFAULT '' COMMENT '邮箱',
+  message varchar(200) NOT NULL DEFAULT '' COMMENT '留言',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='留言信息表';
