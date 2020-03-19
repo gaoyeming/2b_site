@@ -17,7 +17,7 @@ CREATE TABLE `sys_operation_log` (
   oper_params varchar(1024) NOT NULL DEFAULT '' COMMENT '入参',
   oper_result varchar(1024) NOT NULL DEFAULT '' COMMENT '出参',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='系统操作日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='系统操作日志表';
 
 -- 系统参数配置表
 CREATE TABLE `sys_config` (
@@ -30,7 +30,7 @@ CREATE TABLE `sys_config` (
   is_deleted tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否删除 0=否 1=是',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_config_name` (`config_name`)
-)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='系统参数配置表';
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='系统参数配置表';
 
 insert  into `sys_config`(`config_name`,`config_value`,`config_desc`)
 values ('footerAbout','2BB personal blog to keep','底部About');
@@ -69,7 +69,7 @@ CREATE TABLE `backstage_user` (
   is_deleted tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否删除 0=否 1=是',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_login_user` (`login_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='后台登陆用户信息表';
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='后台登陆用户信息表';
 
 -- 初始化数据
 INSERT INTO `backstage_user`(`login_user`, `login_password`, `nick_name`, `locked`)
@@ -86,7 +86,7 @@ CREATE TABLE `backstage_category` (
   is_deleted tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否删除 0=否 1=是',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_category_name` (`category_name`)
-)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='分类表';
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='分类表';
 
 -- 标签表
 CREATE TABLE `backstage_tag` (
@@ -97,7 +97,7 @@ CREATE TABLE `backstage_tag` (
   is_deleted tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否删除 0=否 1=是',
   PRIMARY KEY (id),
   UNIQUE KEY `uq_tag_name` (`tag_name`)
-)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='标签表';
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='标签表';
 
 -- 博客表
 CREATE TABLE `backstage_blog` (
@@ -115,7 +115,7 @@ CREATE TABLE `backstage_blog` (
   is_deleted tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否删除 0=否 1=是',
   PRIMARY KEY (id),
   UNIQUE KEY `uq_blog_title` (`blog_title`)
-)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='博客表';
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='博客表';
 
 -- 博客标签关联表
 CREATE TABLE `backstage_blog_tag_relation` (
@@ -126,7 +126,7 @@ CREATE TABLE `backstage_blog_tag_relation` (
   tag_id int(11) NOT NULL DEFAULT -1 COMMENT '关联的tag主键',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_blog_id_tag_id` (`blog_id`,`tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='博客标签关联表';
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='博客标签关联表';
 
 -- 博客评论表
 CREATE TABLE `backstage_blog_comment` (
@@ -145,7 +145,7 @@ CREATE TABLE `backstage_blog_comment` (
   comment_status tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否审核通过 0-未审核 1-审核通过',
   is_deleted tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否删除 0-未删除 1-已删除',
   PRIMARY KEY (id)
-)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='博客评论表';
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='博客评论表';
 
 -- 友链表
 CREATE TABLE `backstage_link` (
@@ -160,7 +160,7 @@ CREATE TABLE `backstage_link` (
   is_deleted tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否删除 0-未删除 1-已删除',
   PRIMARY KEY (id),
   UNIQUE KEY `uq_link_url` (`link_url`)
-)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='友链表';
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='友链表';
 
 -- 留言信息表
 CREATE TABLE `leave_message` (
@@ -171,4 +171,4 @@ CREATE TABLE `leave_message` (
   email varchar(100) NOT NULL DEFAULT '' COMMENT '邮箱',
   message varchar(200) NOT NULL DEFAULT '' COMMENT '留言',
   PRIMARY KEY (`id`)
-)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='留言信息表';
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='留言信息表';
