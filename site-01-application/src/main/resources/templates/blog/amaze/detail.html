@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title th:text="${configurations.get('websiteName')}+' | '+${pageName}">详情页</title>
+    <title th:text="${pageName}">详情页</title>
     <meta name="description" th:content="${configurations.get('websiteDescription')}">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" th:href="@{${configurations.get('websiteIcon')}}"/>
@@ -29,6 +29,9 @@
 
 </head>
 <body>
+<div style="display:none">
+    <img src="/admin/dist/img/favicon.png" alt="">
+</div>
 <div th:replace="blog/amaze/header::nav-fragment"></div>
 <header th:fragment="header-fragment" class="intro-header"
         th:style="'background-image:url(' + @{/blog/amaze/images/header.jpg} + ');'">
