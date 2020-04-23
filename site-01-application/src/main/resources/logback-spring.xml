@@ -95,6 +95,9 @@
     <logger name="com.yeming.site.interceptor" level="INFO" additivity="false">
         <appender-ref ref="APPLICATION-APPENDER"/>
     </logger>
+    <logger name="com.yeming.site.servlet" level="INFO" additivity="false">
+        <appender-ref ref="APPLICATION-APPENDER"/>
+    </logger>
     <!-- biz层-->
     <logger name="com.yeming.site.biz" level="INFO" additivity="false">
         <appender-ref ref="BIZ-APPENDER"/>

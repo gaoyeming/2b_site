@@ -1,9 +1,8 @@
-package com.yeming.site.config;
+package com.yeming.site.util;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Setter
 @Getter
-public class PropertiesConfig {
+public class PropertiesUtils {
 
     @Value("${customize.http.static.url}")
     private String httpStaticUrl;
@@ -22,4 +21,9 @@ public class PropertiesConfig {
     @Value("${customize.file.upload.dic}")
     private String fileUploadDic;
 
+    @Value("${customize.wechat.token}")
+    private String wechatToken;
+
+    @Value("${customize.wechat.reply.file.path}")
+    private String wechatReplyFilePath;
 }

@@ -24,6 +24,7 @@ public interface AllConstants {
         String DATE_FORMAT_YYYY_MM_DD = "yyyy-MM-dd";
         String PREFIX_MD = "MD";
         String PREFIX_FM = "FM";
+        String ROOT_XML = "xml";
     }
 
     interface Web {

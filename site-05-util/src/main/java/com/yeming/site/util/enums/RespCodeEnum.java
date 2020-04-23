@@ -35,6 +35,14 @@ public enum RespCodeEnum implements IRespCode {
      * 未知的操作类型
      */
     UNKNOWN_OPERATION_TYPE("003", "未知的操作类型"),
+    /**
+     * 微信端用户取消关注了
+     */
+    WEIXIN_UNSUBSCRIBE("105", "微信端用户取消关注了"),
+    /**
+     * 回复微信端用户发来的信息失败
+     */
+    WEIXIN_SEND_MSG_FAIL("104", "回复微信端用户发来的信息失败"),
     ;
     private String code;
     private String message;

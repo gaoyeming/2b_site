@@ -1,8 +1,8 @@
 package com.yeming.site.controller.common;
 
-import com.yeming.site.config.PropertiesConfig;
 import com.yeming.site.controller.vo.response.ResultVO;
 import com.yeming.site.util.DateUtils;
+import com.yeming.site.util.PropertiesUtils;
 import com.yeming.site.util.constant.AllConstants;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
@@ -34,7 +34,7 @@ public class FileController {
     private static Logger LOGGER = LoggerFactory.getLogger(FileController.class);
 
     @Resource
-    private PropertiesConfig propertiesConfig;
+    private PropertiesUtils propertiesUtils;
 
 
     @ApiOperation(value = "普通文件上传", notes = "上传文件到服务器指定的目录",
@@ -57,8 +57,8 @@ public class FileController {
                     DateUtils.getCurrentDateToStr(AllConstants.Common.DATE_FORMAT_YYYYMMDD_HHMMSS) +
                     r.nextInt(1000) + suffixName;
             //创建文件
-            File destFile = new File(propertiesConfig.getFileUploadDic() + newFileName);
-            File fileDirectory = new File(propertiesConfig.getFileUploadDic());
+            File destFile = new File(propertiesUtils.getFileUploadDic() + newFileName);
+            File fileDirectory = new File(propertiesUtils.getFileUploadDic());
             if (!fileDirectory.exists()) {
                 if (!fileDirectory.mkdirs()) {
                     LOGGER.warn("{}目录创建失败", fileDirectory.getPath());
@@ -70,7 +70,7 @@ public class FileController {
             outputStream.flush();
             //上传成功设置可以查看的url
 //            String fileUrl = CommonUtils.getHost(new URI(AllConstants.Web.STATIC_HTTP_REQUEST_URL))+"" + newFileName;
-            String fileUrl = propertiesConfig.getHttpStaticUrl() + AllConstants.Common.SPLIT_BIAS + newFileName;
+            String fileUrl = propertiesUtils.getHttpStaticUrl() + AllConstants.Common.SPLIT_BIAS + newFileName;
             resultVO.returnSuccessWithData(fileUrl);
         } catch (IOException e) {
             LOGGER.error("文件上传出现异常:", e);
@@ -107,8 +107,8 @@ public class FileController {
                     DateUtils.getCurrentDateToStr(AllConstants.Common.DATE_FORMAT_YYYYMMDD_HHMMSS) +
                     r.nextInt(1000) + suffixName;
             //创建文件
-            File destFile = new File(propertiesConfig.getFileUploadDic() + newFileName);
-            File fileDirectory = new File(propertiesConfig.getFileUploadDic());
+            File destFile = new File(propertiesUtils.getFileUploadDic() + newFileName);
+            File fileDirectory = new File(propertiesUtils.getFileUploadDic());
             if (!fileDirectory.exists()) {
                 if (!fileDirectory.mkdirs()) {
                     LOGGER.warn("{}目录创建失败", fileDirectory.getPath());
@@ -120,7 +120,7 @@ public class FileController {
             outputStream.flush();
             //上传成功设置可以查看的url
 //            String fileUrl = CommonUtils.getHost(new URI(AllConstants.Web.STATIC_HTTP_REQUEST_URL))+"" + newFileName;
-            String fileUrl = propertiesConfig.getHttpStaticUrl() + AllConstants.Common.SPLIT_BIAS + newFileName;
+            String fileUrl = propertiesUtils.getHttpStaticUrl() + AllConstants.Common.SPLIT_BIAS + newFileName;
             returnStr = "{\"success\": 1, \"message\":\"success\",\"url\":\"" + fileUrl + "\"}";
         } catch (IOException e) {
             LOGGER.error("文件上传出现异常:", e);

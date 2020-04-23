@@ -10,6 +10,7 @@ import org.springframework.util.StringUtils;
 import java.util.Arrays;
 
 public class MarkDownUtils {
+    private MarkDownUtils(){}
     /**
      * 转换md格式为html
      *

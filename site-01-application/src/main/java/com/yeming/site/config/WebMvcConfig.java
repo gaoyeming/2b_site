@@ -1,6 +1,7 @@
 package com.yeming.site.config;
 
 import com.yeming.site.interceptor.BaseInterceptor;
+import com.yeming.site.util.PropertiesUtils;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -19,7 +20,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     private BaseInterceptor baseInterceptor;
 
     @Resource
-    private PropertiesConfig propertiesConfig;
+    private PropertiesUtils propertiesUtils;
 
 
     @Override
@@ -32,6 +33,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**")
-                .addResourceLocations("file:" + propertiesConfig.getFileUploadDic());
+                .addResourceLocations("file:" + propertiesUtils.getFileUploadDic());
     }
 }
